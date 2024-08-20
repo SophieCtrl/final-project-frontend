@@ -4,6 +4,10 @@
 
 This project is the frontend part of a web application that allows users to manage their supplements, track their health goals, and maintain a profile with their health information. The application includes authentication, user profile management, and supplement tracking features.
 
+Complete project: https://github.com/SophieCtrl/supplement-organizer-app/
+Backend Part: https://github.com/SophieCtrl/final-project-backend
+Deployed project: https://nutritrack-organizer.netlify.app/
+
 ## Table of Contents
 
 - Overview
