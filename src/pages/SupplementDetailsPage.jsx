@@ -60,7 +60,7 @@ const SupplementDetailsPage = ({ supplementId }) => {
         frequency: "",
         time: "",
       });
-      // Handle successful response
+
       if (response.status === 200) {
         navigate("/my-supplements");
       }

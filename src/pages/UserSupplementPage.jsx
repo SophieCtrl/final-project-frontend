@@ -1,8 +1,9 @@
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { TrashIcon } from "@heroicons/react/24/outline";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import axios from "../axiosInstance";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -11,6 +12,7 @@ const UserSupplementPage = () => {
   const [editedSupplements, setEditedSupplements] = useState({});
   const [openDropdown, setOpenDropdown] = useState(null);
   const [changedSupplements, setChangedSupplements] = useState(new Set());
+  const { isLoggedIn, isLoading } = useContext(AuthContext);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +25,9 @@ const UserSupplementPage = () => {
       }
     };
 
-    fetchPersonalSupplements();
+    if (isLoggedIn) {
+      fetchPersonalSupplements();
+    }
   }, []);
 
   const handleInputChange = (supplementId, field, value) => {
@@ -41,7 +45,7 @@ const UserSupplementPage = () => {
     try {
       const response = await axios.put(
         `/api/users/supplements/${supplementId}`,
-        editedSupplements[supplementId] // Pass only the edited fields
+        editedSupplements[supplementId]
       );
       // Refetch the updated supplements
       const fetchResponse = await axios.get(`/api/users/profile`);
@@ -215,7 +219,7 @@ const UserSupplementPage = () => {
                       </div>
                       {changedSupplements.has(item._id) && (
                         <button
-                          onClick={() => handleSave(item._id)} // Ensure the correct ID is used
+                          onClick={() => handleSave(item._id)}
                           className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                         >
                           Save
