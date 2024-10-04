@@ -112,7 +112,7 @@ const SupplementListPage = () => {
       goals: [],
       nutritional_types: [],
     });
-    setTypeFilter(""); // Reset type filter
+    setTypeFilter("");
   };
 
   return (

@@ -22,7 +22,6 @@ const SupplementDetailsPage = ({ supplementId }) => {
         const response = await axiosInstance.get("/api/users/profile");
         setUser(response.data);
 
-        // Check if the supplement is already in personal_supplements
         const supplementExists = response.data.personal_supplements.some(
           (supp) => supp.supplement._id === id
         );
