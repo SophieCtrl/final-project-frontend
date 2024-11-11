@@ -25,6 +25,7 @@ const LoginPage = () => {
       storeToken(authToken, redirectPath);
       authenticateUser();
     } catch (error) {
+      console.error("Login error:", error.response);
       setError(error.response?.data?.message || "Server error");
     }
   };
