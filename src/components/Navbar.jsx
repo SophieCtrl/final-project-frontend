@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 const Navbar = () => {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
